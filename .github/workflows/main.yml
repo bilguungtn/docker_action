@@ -8,11 +8,13 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      # - uses: actions/checkout@v2
       - name: Deploy next js app
         uses: appleboy/ssh-action@master
         with:
           host: ${{secrets.SSH_HOST}}
           key: ${{secrets.SSH_KEY}}
           username: ${{ secrets.SSH_USERNAME }}
+          run: echo start
           run: docker compose up -d --build
+          run: echo finish
