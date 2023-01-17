@@ -15,7 +15,4 @@ jobs:
           host: ${{secrets.SSH_HOST}}
           key: ${{secrets.SSH_KEY}}
           username: ${{ secrets.SSH_USERNAME }}
-
-          script: |
-            echo running
-            docker compose up -d --build
+          run: docker compose up -d --build
