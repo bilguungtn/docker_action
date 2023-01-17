@@ -17,7 +17,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           script: |
             cd /home/projects/docker_action
-            echo insisde
-            docker compose up
+            git pull origin main
+            docker compose up -d --build
       - name: test
         run: echo yay
