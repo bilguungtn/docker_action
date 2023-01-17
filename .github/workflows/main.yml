@@ -18,6 +18,6 @@ jobs:
           script: |
             cd /home/projects/docker_action
             echo insisde
-          run: docker compose up --build -d
+            docker compose up
       - name: test
         run: echo yay
