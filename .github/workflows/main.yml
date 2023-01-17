@@ -15,6 +15,6 @@ jobs:
           host: ${{secrets.SSH_HOST}}
           key: ${{secrets.SSH_KEY}}
           username: ${{ secrets.SSH_USERNAME }}
-          run: echo start
-          run: docker compose up -d --build
-          run: echo finish
+        run: docker compose up -d --build
+      - name: test
+        run: echo yay
