@@ -1,7 +1,20 @@
 name: CI
-on: push
+on:
+  push:
+    branches: ["main"]
 
 jobs:
- build:
-  name: Build
-  runs-on: ubuntu-latest
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy next js app
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{secrets.SSH_HOST}}
+          key: ${{secrets.SSH_KEY}}
+          username: ${{ secrets.SSH_USERNAME }}
+
+          script: |
+            docker compose up -d --build
