@@ -8,10 +8,9 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      # - uses: actions/checkout@v2
-      - uses: appleboy/ssh-action@master
-      
+      - uses: actions/checkout@v2
       - name: Deploy next js app
+        uses: appleboy/ssh-action@master
         with:
           host: ${{secrets.SSH_HOST}}
           key: ${{secrets.SSH_KEY}}
